@@ -1,0 +1,69 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scripts/Level.gd" type="Script" id=1]
+[ext_resource path="res://Graphics/LevelBackground/L1F1Background.png" type="Texture" id=2]
+[ext_resource path="res://Nodes/AlarmClock.tscn" type="PackedScene" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 1.55272, 8.81479 )
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[node name="L2F1" type="Node"]
+
+script = ExtResource( 1 )
+
+[node name="Background" type="Sprite" parent="." index="0"]
+
+position = Vector2( 16, -16 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="WallLeft" type="Area2D" parent="." index="1"]
+
+position = Vector2( 0, -9 )
+scale = Vector2( 0.117789, 0.303091 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallLeft" index="0"]
+
+scale = Vector2( 7.10605, 3.43085 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="WallRight" type="Area2D" parent="." index="2"]
+
+position = Vector2( 32, -9 )
+scale = Vector2( 0.0576449, 0.366458 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallRight" index="0"]
+
+scale = Vector2( 1.97828, 2.5283 )
+shape = SubResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="AlarmClock" parent="." index="3" instance=ExtResource( 3 )]
+
+position = Vector2( 25, 0 )
+
+
