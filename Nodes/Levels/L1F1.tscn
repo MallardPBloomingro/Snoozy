@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/Level.gd" type="Script" id=1]
 [ext_resource path="res://Graphics/LevelBackground/L1F1Background.png" type="Texture" id=2]
 [ext_resource path="res://Nodes/AlarmClock.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Nodes/Door.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Nodes/Player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Graphics/GameScreen1.png" type="Texture" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -15,7 +17,7 @@ extents = Vector2( 1.55272, 8.81479 )
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="L1F1" type="Node"]
+[node name="L1F1" type="Node" index="0"]
 
 script = ExtResource( 1 )
 
@@ -27,6 +29,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="WallLeft" type="Area2D" parent="." index="1"]
 
+editor/display_folded = true
 position = Vector2( 0, -9 )
 scale = Vector2( 0.117789, 0.303091 )
 input_pickable = true
@@ -46,6 +49,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="WallRight" type="Area2D" parent="." index="2"]
 
+editor/display_folded = true
 position = Vector2( 32, -9 )
 scale = Vector2( 0.0576449, 0.366458 )
 input_pickable = true
@@ -70,7 +74,22 @@ position = Vector2( 32, 0 )
 [node name="Door" parent="." index="4" instance=ExtResource( 4 )]
 
 position = Vector2( 20, 0 )
-nextScene = "res://Nodes/Levels/L2F1.tscn"
-playerPosition = 60
+
+[node name="Player" parent="." index="5" instance=ExtResource( 5 )]
+
+position = Vector2( 20, 0 )
+
+[node name="Fade" type="AnimationPlayer" parent="." index="6"]
+
+root_node = NodePath("../Blackscreen")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+blend_times = [  ]
+
+[node name="Blackscreen" type="Sprite" parent="." index="7"]
+
+texture = ExtResource( 6 )
 
 
