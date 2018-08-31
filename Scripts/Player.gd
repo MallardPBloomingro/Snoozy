@@ -6,16 +6,19 @@ export (int) var collisionDist#TODO: müssen wir warscheinlich endern, sodass es
 
 var target = 0
 var isWalking = false
+var justSpawned = true
 
 func start (var pos, var setActiveCamera = true):
 	position = pos
 	target = pos.x
-	$Camera2D.position = pos
+	$Camera2D.set_global_position(pos)#TODO: Kamera springt immernoch, mach dass es aufhöhrt
+	justSpawned = true
 
 func _process(delta):
 	var dir = 0
 	if Input.is_mouse_button_pressed(1):
 		target = get_global_mouse_position().x
+		justSpawned = false
 	
 	collisionObstacle()
 	
@@ -39,20 +42,23 @@ func _process(delta):
 		$WalkingAnimation.stop()
 	
 func collisionHandler():# Am I in door or alarm?
+	if justSpawned:
+		return
+	
 	var col = get_overlapping_areas()
 	if col.empty():
 		#TODO: Idle animation
 		return
-	if col[0].name == "Door":
-		col[0].traverse()# TODO: send signal and play opening animation
-	elif col[0].name == "AlarmClock":
+	if col[0].name == "AlarmClock":
 		col[0].press()# TODO: send signal and play alarm shut down animation
+	elif col[0].get_meta("Type") == "Door":
+		col[0].traverse()# TODO: send signal and play opening animation
 
 func collisionObstacle():
 	var col = get_overlapping_areas()
 	if col.empty():
 		return
-	if col[0].name == "Door" || col[0].name == "AlarmClock":
+	if (col[0].has_meta("Type") && col[0].get_meta("Type") == "Door") || col[0].name == "AlarmClock":
 		return
 	
 	if col[0].position.x < position.x:

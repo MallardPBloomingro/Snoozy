@@ -1,11 +1,13 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scripts/Level.gd" type="Script" id=1]
 [ext_resource path="res://Graphics/LevelBackground/L1F1Background.png" type="Texture" id=2]
 [ext_resource path="res://Nodes/AlarmClock.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Nodes/Door.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Nodes/Player.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Graphics/GameScreen1.png" type="Texture" id=6]
+[ext_resource path="res://Graphics/Fade-In.tres" type="Animation" id=6]
+[ext_resource path="res://Graphics/Fade-Out.tres" type="Animation" id=7]
+[ext_resource path="res://Graphics/GameScreen1.png" type="Texture" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -69,27 +71,37 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="AlarmClock" parent="." index="3" instance=ExtResource( 3 )]
 
-position = Vector2( 32, 0 )
+position = Vector2( 320, 0 )
+nextScene = "res://Nodes/Cutscenes/C1.tscn"
 
 [node name="Door" parent="." index="4" instance=ExtResource( 4 )]
 
 position = Vector2( 20, 0 )
+playerPosition = NodePath("../Door2")
 
-[node name="Player" parent="." index="5" instance=ExtResource( 5 )]
+[node name="Door2" parent="." index="5" instance=ExtResource( 4 )]
 
-position = Vector2( 20, 0 )
+position = Vector2( 300, 0 )
+playerPosition = NodePath("../Door")
 
-[node name="Fade" type="AnimationPlayer" parent="." index="6"]
+[node name="Player" parent="." index="6" instance=ExtResource( 5 )]
+
+position = Vector2( 10, 0 )
+
+[node name="Fade" type="AnimationPlayer" parent="." index="7"]
 
 root_node = NodePath("../Blackscreen")
 autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
+anims/Fade-In = ExtResource( 6 )
+anims/Fade-Out = ExtResource( 7 )
 blend_times = [  ]
 
-[node name="Blackscreen" type="Sprite" parent="." index="7"]
+[node name="Blackscreen" type="Sprite" parent="." index="8"]
 
-texture = ExtResource( 6 )
+texture = ExtResource( 8 )
+_sections_unfolded = [ "Visibility" ]
 
 
