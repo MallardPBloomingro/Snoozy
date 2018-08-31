@@ -1,8 +1,8 @@
-# Snoozy
+﻿# Snoozy
 
 ### TODO:
-- [ ] Alle Flure eines Levels sind in einer Szene
-- [ ] Alle Szenenwechsel überarbeiten
+- [x] Alle Flure eines Levels sind in einer Szene
+- [x] Alle Szenenwechsel überarbeiten
   - [ ] Cutscenes
 - [ ] Menü implementieren (Startmenü, Zwischenspeichern)
 - [ ] Active Sounds in Fluren
