@@ -13,6 +13,7 @@ func start (var pos, var setActiveCamera = true):
 	target = pos.x
 	$Camera2D.set_global_position(pos)#TODO: Kamera springt immernoch, mach dass es aufhöhrt
 	justSpawned = true
+	get_parent().get_node("ActiveZone").position.y = pos.y
 
 func _process(delta):
 	var dir = 0
@@ -46,18 +47,26 @@ func collisionHandler():# Am I in door or alarm?
 		return
 	
 	var col = get_overlapping_areas()
+	
+	if col[0].name == "ActiveZone":
+		col.pop_front()
 	if col.empty():
 		#TODO: Idle animation
 		return
+	
 	if col[0].name == "AlarmClock":
 		col[0].press()# TODO: send signal and play alarm shut down animation
-	elif col[0].get_meta("Type") == "Door":
+	elif (col[0].has_meta("Type") && col[0].get_meta("Type") == "Door"):
 		col[0].traverse()# TODO: send signal and play opening animation
 
 func collisionObstacle():
 	var col = get_overlapping_areas()
+	
+	if col[0].name == "ActiveZone":
+		col.pop_front()
 	if col.empty():
 		return
+	
 	if (col[0].has_meta("Type") && col[0].get_meta("Type") == "Door") || col[0].name == "AlarmClock":
 		return
 	

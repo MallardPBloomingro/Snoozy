@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/DummyAlarmClock.wav-8c8feffbfcea735b44d8d0fe75ac017f.sample"
+
+[deps]
+
+source_file="res://Audio/DummyAlarmClock.wav"
+dest_files=[ "res://.import/DummyAlarmClock.wav-8c8feffbfcea735b44d8d0fe75ac017f.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=true
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=true
+compress/mode=0

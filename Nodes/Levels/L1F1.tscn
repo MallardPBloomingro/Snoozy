@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scripts/Level.gd" type="Script" id=1]
 [ext_resource path="res://Graphics/LevelBackground/L1F1Background.png" type="Texture" id=2]
@@ -15,6 +15,11 @@ custom_solver_bias = 0.0
 extents = Vector2( 1.55272, 8.81479 )
 
 [sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[sub_resource type="RectangleShape2D" id=3]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
@@ -71,18 +76,20 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="AlarmClock" parent="." index="3" instance=ExtResource( 3 )]
 
-position = Vector2( 320, 0 )
+position = Vector2( 50, 50 )
 nextScene = "res://Nodes/Cutscenes/C1.tscn"
 
 [node name="Door" parent="." index="4" instance=ExtResource( 4 )]
 
 position = Vector2( 20, 0 )
 playerPosition = NodePath("../Door2")
+distToAlarmClock = 1
 
 [node name="Door2" parent="." index="5" instance=ExtResource( 4 )]
 
-position = Vector2( 300, 0 )
+position = Vector2( 0, 50 )
 playerPosition = NodePath("../Door")
+distToAlarmClock = 0
 
 [node name="Player" parent="." index="6" instance=ExtResource( 5 )]
 
@@ -103,5 +110,22 @@ blend_times = [  ]
 
 texture = ExtResource( 8 )
 _sections_unfolded = [ "Visibility" ]
+
+[node name="ActiveZone" type="Area2D" parent="." index="9"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ActiveZone" index="0"]
+
+position = Vector2( 0, -10 )
+scale = Vector2( 100, 1 )
+shape = SubResource( 3 )
+_sections_unfolded = [ "Transform" ]
 
 
