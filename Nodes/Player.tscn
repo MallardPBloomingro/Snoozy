@@ -10,7 +10,7 @@
 [ext_resource path="res://Graphics/TestWalk7.png" type="Texture" id=8]
 [ext_resource path="res://Graphics/TestWalk8.png" type="Texture" id=9]
 
-[sub_resource type="SpriteFrames" id=3]
+[sub_resource type="SpriteFrames" id=1]
 
 animations = [ {
 "frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
@@ -24,7 +24,7 @@ animations = [ {
 custom_solver_bias = 0.0
 extents = Vector2( 5.07289, 16.9721 )
 
-[node name="Player" type="Area2D" index="0"]
+[node name="Player" type="Area2D"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -39,13 +39,12 @@ __meta__ = {
 "_edit_group_": true
 }
 speed = 10
-height = 0
 collisionDist = 6
 
 [node name="WalkingAnimation" type="AnimatedSprite" parent="." index="0"]
 
 position = Vector2( 0, -8 )
-frames = SubResource( 3 )
+frames = SubResource( 1 )
 animation = "Walking"
 _sections_unfolded = [ "Transform" ]
 
@@ -58,7 +57,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Camera2D" type="Camera2D" parent="." index="2"]
 
-position = Vector2( 0, -7 )
+offset = Vector2( 0, -7 )
 anchor_mode = 1
 rotating = false
 current = true
@@ -82,14 +81,5 @@ editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = false
 _sections_unfolded = [ "Drag Margin", "Editor", "Smoothing", "Transform" ]
-
-[node name="Timer" type="Timer" parent="." index="3"]
-
-process_mode = 1
-wait_time = 2.0
-one_shot = false
-autostart = false
-
-[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 
 
