@@ -11,7 +11,7 @@ config_version=3
 [application]
 
 config/name="Snoozy"
-run/main_scene="res://Nodes/Main.tscn"
+run/main_scene="res://Nodes/MainMenu.tscn"
 config/icon="res://icon.png"
 
 [rendering]

@@ -6,7 +6,7 @@
 [node name="Node" type="Node"]
 
 script = ExtResource( 1 )
-nextScene = "res://Nodes/Levels/L1F1.tscn"
+nextScene = "res://Nodes/Levels/L1.tscn"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="0"]
 

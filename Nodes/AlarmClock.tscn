@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/AlarmClock.gd" type="Script" id=1]
 [ext_resource path="res://Graphics/AlarmClock1.png" type="Texture" id=2]
 [ext_resource path="res://Graphics/AlarmClock2.png" type="Texture" id=3]
+[ext_resource path="res://Audio/DummyAlarmClock.wav" type="AudioStream" id=4]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -18,7 +19,7 @@ animations = [ {
 custom_solver_bias = 0.0
 extents = Vector2( 5.45481, 4.73999 )
 
-[node name="AlarmClock" type="Area2D" index="0"]
+[node name="AlarmClock" type="Area2D"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -49,6 +50,17 @@ process_mode = 1
 wait_time = 2.0
 one_shot = true
 autostart = false
+
+[node name="Audio" type="AudioStreamPlayer2D" parent="." index="3"]
+
+stream = ExtResource( 4 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 

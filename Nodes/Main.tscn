@@ -1,8 +1,9 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Nodes/Levels/L1F1.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Nodes/Levels/L1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Nodes/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Graphics/GameScreen1.png" type="Texture" id=3]
+
 
 [sub_resource type="Animation" id=1]
 
