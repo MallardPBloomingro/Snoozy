@@ -1,7 +1,7 @@
 extends Area2D
 
 export (NodePath) var playerPosition
-export (int) var distToAlarmClock
+export (int, 0, 5) var distToAlarmClock#mit range für unterstütze entfernungen
 
 func _ready():
 	#signal connecten, damit das nicht der Game Designer machen muss
@@ -10,7 +10,9 @@ func _ready():
 	$OpeningAnimation.stop()
 	set_meta("Type", "Door")#damit für den spieler ersichtlich ist was ne tür ist auch wenn die node nicht "Door" heist
 	#audio dampening anhand der entfernung einstellen
-	if distToAlarmClock == 1:
+	if distToAlarmClock == 0:
+		pass
+	elif distToAlarmClock == 1:
 		$Audio.bus = "Dist1"
 	elif distToAlarmClock == 2:
 		$Audio.bus = "Dist2"
@@ -19,6 +21,8 @@ func _ready():
 	elif distToAlarmClock == 4:
 		$Audio.bus = "Dist4"
 	elif distToAlarmClock == 5:
+		$Audio.bus = "Dist5"
+	else:
 		$Audio.bus = "Dist5"
 
 func traverse():
