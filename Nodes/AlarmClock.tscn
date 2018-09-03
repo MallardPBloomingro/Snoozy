@@ -1,14 +1,16 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/AlarmClock.gd" type="Script" id=1]
 [ext_resource path="res://Graphics/AlarmClock1.png" type="Texture" id=2]
 [ext_resource path="res://Graphics/AlarmClock2.png" type="Texture" id=3]
-[ext_resource path="res://Audio/DummyAlarmClock.wav" type="AudioStream" id=4]
+[ext_resource path="res://Graphics/AlarmClock3.png" type="Texture" id=4]
+[ext_resource path="res://Graphics/AlarmClock4.png" type="Texture" id=5]
+[ext_resource path="res://Audio/DummyAlarmClock.wav" type="AudioStream" id=6]
 
 [sub_resource type="SpriteFrames" id=1]
 
 animations = [ {
-"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 5 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 3 ) ],
 "loop": true,
 "name": "AlarmClock",
 "speed": 5.0
@@ -17,9 +19,9 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
-extents = Vector2( 5.45481, 4.73999 )
+extents = Vector2( 150, 512 )
 
-[node name="AlarmClock" type="Area2D"]
+[node name="AlarmClock" type="Area2D" index="0"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -34,15 +36,18 @@ nextScene = null
 
 [node name="Animation" type="AnimatedSprite" parent="." index="0"]
 
-position = Vector2( 0, -8 )
 frames = SubResource( 1 )
 animation = "AlarmClock"
+frame = 2
+playing = true
+offset = Vector2( 0, -512 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
-position = Vector2( 0, -4.29163 )
+position = Vector2( 0, -512 )
 shape = SubResource( 2 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="Timer" type="Timer" parent="." index="2"]
 
@@ -53,7 +58,8 @@ autostart = false
 
 [node name="Audio" type="AudioStreamPlayer2D" parent="." index="3"]
 
-stream = ExtResource( 4 )
+position = Vector2( 0, -583 )
+stream = ExtResource( 6 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
@@ -61,6 +67,7 @@ max_distance = 2000.0
 attenuation = 1.0
 bus = "Master"
 area_mask = 1
+_sections_unfolded = [ "Transform" ]
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 

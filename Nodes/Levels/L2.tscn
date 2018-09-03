@@ -34,7 +34,7 @@ texture = ExtResource( 2 )
 centered = false
 offset = Vector2( 0, -1024 )
 region_enabled = true
-region_rect = Rect2( 0, 0, 2048, 1024 )
+region_rect = Rect2( 0, 0, 6144, 1024 )
 _sections_unfolded = [ "Offset", "Region", "Transform" ]
 
 [node name="Sprite" type="Sprite" parent="." index="1"]
@@ -65,7 +65,7 @@ _sections_unfolded = [ "Transform" ]
 [node name="WallRight" type="Area2D" parent="." index="3"]
 
 editor/display_folded = true
-position = Vector2( 2048, 0 )
+position = Vector2( 6144, 0 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -83,7 +83,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="AlarmClock" parent="." index="4" instance=ExtResource( 4 )]
 
-position = Vector2( 1536, 0 )
+position = Vector2( 5632, 0 )
 nextScene = "res://Nodes/Cutscenes/C1.tscn"
 
 [node name="Player" parent="." index="5" instance=ExtResource( 5 )]
