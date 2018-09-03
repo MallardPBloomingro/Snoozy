@@ -89,7 +89,6 @@ nextScene = "res://Nodes/Cutscenes/C1.tscn"
 [node name="Player" parent="." index="5" instance=ExtResource( 5 )]
 
 position = Vector2( 10, 0 )
-height = 0
 
 [node name="Fade" type="AnimationPlayer" parent="." index="6"]
 

@@ -95,10 +95,14 @@ _sections_unfolded = [ "Transform" ]
 [node name="Door" parent="." index="5" instance=ExtResource( 4 )]
 
 position = Vector2( 3584, 0 )
+playerPosition = NodePath("../Door2")
+distToAlarmClock = null
 
 [node name="Door2" parent="." index="6" instance=ExtResource( 4 )]
 
 position = Vector2( 512, 2000 )
+playerPosition = NodePath("../Door")
+distToAlarmClock = null
 
 [node name="AlarmClock" parent="." index="7" instance=ExtResource( 5 )]
 
@@ -108,7 +112,6 @@ nextScene = "res://Nodes/Cutscenes/C1.tscn"
 [node name="Player" parent="." index="8" instance=ExtResource( 6 )]
 
 position = Vector2( 10, 0 )
-height = 0
 
 [node name="Fade" type="AnimationPlayer" parent="." index="9"]
 
@@ -123,7 +126,6 @@ blend_times = [  ]
 
 [node name="Blackscreen" type="Sprite" parent="." index="10"]
 
-visible = false
 scale = Vector2( 30, 30 )
 texture = ExtResource( 9 )
 _sections_unfolded = [ "Offset", "Transform", "Visibility" ]
