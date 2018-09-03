@@ -1,13 +1,14 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scripts/Level.gd" type="Script" id=1]
 [ext_resource path="res://Graphics/Corridor.png" type="Texture" id=2]
 [ext_resource path="res://Graphics/Bett.png" type="Texture" id=3]
-[ext_resource path="res://Nodes/AlarmClock.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Nodes/Player.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Graphics/Fade-In.tres" type="Animation" id=6]
-[ext_resource path="res://Graphics/Fade-Out.tres" type="Animation" id=7]
-[ext_resource path="res://Graphics/GameScreen1.png" type="Texture" id=8]
+[ext_resource path="res://Nodes/Door.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Nodes/AlarmClock.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Nodes/Player.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Graphics/Fade-In.tres" type="Animation" id=7]
+[ext_resource path="res://Graphics/Fade-Out.tres" type="Animation" id=8]
+[ext_resource path="res://Graphics/GameScreen1.png" type="Texture" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -34,17 +35,27 @@ texture = ExtResource( 2 )
 centered = false
 offset = Vector2( 0, -1024 )
 region_enabled = true
-region_rect = Rect2( 0, 0, 2048, 1024 )
+region_rect = Rect2( 0, 0, 4096, 1024 )
 _sections_unfolded = [ "Offset", "Region", "Transform" ]
 
-[node name="Sprite" type="Sprite" parent="." index="1"]
+[node name="Background2" type="Sprite" parent="." index="1"]
+
+position = Vector2( 0, 2000 )
+texture = ExtResource( 2 )
+centered = false
+offset = Vector2( 0, -1024 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 4096, 1024 )
+_sections_unfolded = [ "Offset", "Region", "Transform" ]
+
+[node name="Sprite" type="Sprite" parent="." index="2"]
 
 position = Vector2( 512, 0 )
 texture = ExtResource( 3 )
 offset = Vector2( 0, -512 )
 _sections_unfolded = [ "Offset", "Transform" ]
 
-[node name="WallLeft" type="Area2D" parent="." index="2"]
+[node name="WallLeft" type="Area2D" parent="." index="3"]
 
 editor/display_folded = true
 input_pickable = true
@@ -62,7 +73,7 @@ position = Vector2( 0, -512 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="WallRight" type="Area2D" parent="." index="3"]
+[node name="WallRight" type="Area2D" parent="." index="4"]
 
 editor/display_folded = true
 position = Vector2( 2048, 0 )
@@ -81,34 +92,43 @@ position = Vector2( 0, -512 )
 shape = SubResource( 2 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="AlarmClock" parent="." index="4" instance=ExtResource( 4 )]
+[node name="Door" parent="." index="5" instance=ExtResource( 4 )]
 
-position = Vector2( 1536, 0 )
+position = Vector2( 3584, 0 )
+
+[node name="Door2" parent="." index="6" instance=ExtResource( 4 )]
+
+position = Vector2( 512, 2000 )
+
+[node name="AlarmClock" parent="." index="7" instance=ExtResource( 5 )]
+
+position = Vector2( 3584, 2000 )
 nextScene = "res://Nodes/Cutscenes/C1.tscn"
 
-[node name="Player" parent="." index="5" instance=ExtResource( 5 )]
+[node name="Player" parent="." index="8" instance=ExtResource( 6 )]
 
 position = Vector2( 10, 0 )
 height = 0
 
-[node name="Fade" type="AnimationPlayer" parent="." index="6"]
+[node name="Fade" type="AnimationPlayer" parent="." index="9"]
 
 root_node = NodePath("../Blackscreen")
 autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/Fade-In = ExtResource( 6 )
-anims/Fade-Out = ExtResource( 7 )
+anims/Fade-In = ExtResource( 7 )
+anims/Fade-Out = ExtResource( 8 )
 blend_times = [  ]
 
-[node name="Blackscreen" type="Sprite" parent="." index="7"]
+[node name="Blackscreen" type="Sprite" parent="." index="10"]
 
+visible = false
 scale = Vector2( 30, 30 )
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 _sections_unfolded = [ "Offset", "Transform", "Visibility" ]
 
-[node name="ActiveZone" type="Area2D" parent="." index="8"]
+[node name="ActiveZone" type="Area2D" parent="." index="11"]
 
 editor/display_folded = true
 input_pickable = true

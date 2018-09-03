@@ -18,9 +18,9 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
-extents = Vector2( 5.24394, 8.22998 )
+extents = Vector2( 10, 512 )
 
-[node name="Door" type="Area2D"]
+[node name="Door" type="Area2D" index="0"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -37,14 +37,14 @@ playerPosition = null
 
 [node name="OpeningAnimation" type="AnimatedSprite" parent="." index="0"]
 
-position = Vector2( 0, -8 )
 frames = SubResource( 1 )
 animation = "OpeningDoor"
+offset = Vector2( 0, -512 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
-position = Vector2( 0, -8 )
+position = Vector2( 0, -512 )
 shape = SubResource( 2 )
 _sections_unfolded = [ "Transform" ]
 
