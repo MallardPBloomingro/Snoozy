@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/GameScreen2.png-c550305a625851ca02976f61e042e4d9.stex"
+path="res://.import/AlarmClock4.png-9775d904627864b3ffe94007f8734deb.stex"
 
 [deps]
 
-source_file="res://Graphics/GameScreen2.png"
-dest_files=[ "res://.import/GameScreen2.png-c550305a625851ca02976f61e042e4d9.stex" ]
+source_file="res://Graphics/AlarmClock4.png"
+dest_files=[ "res://.import/AlarmClock4.png-9775d904627864b3ffe94007f8734deb.stex" ]
 
 [params]
 

@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/L1F1Background.png-352350ebcb72723060d33c74bf017e4e.stex"
+path="res://.import/Bett.png-269bee09ca671ee57bdf0c98204dc75a.stex"
 
 [deps]
 
-source_file="res://Graphics/LevelBackground/L1F1Background.png"
-dest_files=[ "res://.import/L1F1Background.png-352350ebcb72723060d33c74bf017e4e.stex" ]
+source_file="res://Graphics/Bett.png"
+dest_files=[ "res://.import/Bett.png-269bee09ca671ee57bdf0c98204dc75a.stex" ]
 
 [params]
 
@@ -16,7 +16,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
@@ -25,5 +25,5 @@ process/premult_alpha=false
 process/HDR_as_SRGB=false
 stream=false
 size_limit=0
-detect_3d=false
+detect_3d=true
 svg/scale=1.0
