@@ -21,7 +21,7 @@ animations = [ {
 custom_solver_bias = 0.0
 extents = Vector2( 150, 512 )
 
-[node name="AlarmClock" type="Area2D" index="0"]
+[node name="AlarmClock" type="Area2D"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -38,7 +38,7 @@ nextScene = null
 
 frames = SubResource( 1 )
 animation = "AlarmClock"
-frame = 2
+frame = 7
 playing = true
 offset = Vector2( 0, -512 )
 _sections_unfolded = [ "Transform" ]
@@ -63,7 +63,7 @@ stream = ExtResource( 6 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
-max_distance = 2000.0
+max_distance = 10000.0
 attenuation = 1.0
 bus = "Master"
 area_mask = 1

@@ -8,6 +8,9 @@ var target = 0
 var isWalking = false
 var justSpawned = true
 
+func _ready():
+	target = position.x
+
 func start (var pos, var setActiveCamera = true):
 	position = pos
 	target = pos.x
@@ -47,7 +50,8 @@ func collisionHandler():# Am I in door or alarm?
 		return
 	
 	var col = get_overlapping_areas()
-	
+	if col.empty():
+		return
 	if col[0].name == "ActiveZone":
 		col.pop_front()
 	if col.empty():
@@ -61,7 +65,8 @@ func collisionHandler():# Am I in door or alarm?
 
 func collisionObstacle():
 	var col = get_overlapping_areas()
-	
+	if col.empty():
+		return
 	if col[0].name == "ActiveZone":
 		col.pop_front()
 	if col.empty():

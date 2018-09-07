@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Scripts/MainMenu.gd" type="Script" id=1]
 
-[node name="MainMenu" type="Node" index="0"]
+[node name="MainMenu" type="Node"]
 
 script = ExtResource( 1 )
 firstScene = "res://Nodes/Levels/L1.tscn"

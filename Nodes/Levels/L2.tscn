@@ -24,7 +24,7 @@ extents = Vector2( 10, 512 )
 custom_solver_bias = 0.0
 extents = Vector2( 10000, 512 )
 
-[node name="L1F1" type="Node" index="0"]
+[node name="L1F1" type="Node"]
 
 script = ExtResource( 1 )
 
@@ -88,8 +88,7 @@ nextScene = "res://Nodes/Cutscenes/C1.tscn"
 
 [node name="Player" parent="." index="5" instance=ExtResource( 5 )]
 
-position = Vector2( 10, 0 )
-height = 0
+position = Vector2( 300, 0 )
 
 [node name="Fade" type="AnimationPlayer" parent="." index="6"]
 
