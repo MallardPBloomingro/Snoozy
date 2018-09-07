@@ -35,7 +35,7 @@ texture = ExtResource( 2 )
 centered = false
 offset = Vector2( 0, -1024 )
 region_enabled = true
-region_rect = Rect2( 0, 0, 4096, 1024 )
+region_rect = Rect2( 0, 0, 6144, 1024 )
 _sections_unfolded = [ "Offset", "Region", "Transform" ]
 
 [node name="Background2" type="Sprite" parent="." index="1"]
@@ -95,7 +95,7 @@ _sections_unfolded = [ "Transform" ]
 [node name="WallRight" type="Area2D" parent="." index="5"]
 
 editor/display_folded = true
-position = Vector2( 4096, 0 )
+position = Vector2( 6144, 0 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -130,28 +130,40 @@ position = Vector2( 0, -512 )
 shape = SubResource( 2 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Door" parent="." index="7" instance=ExtResource( 4 )]
+[node name="DoorF1_1" parent="." index="7" instance=ExtResource( 4 )]
 
-position = Vector2( 3072, 0 )
-playerPosition = NodePath("../Door2")
+position = Vector2( 2048, 0 )
+playerPosition = NodePath("../DoorF3_2")
+distToAlarmClock = 2
+
+[node name="DoorF1_2" parent="." index="8" instance=ExtResource( 4 )]
+
+position = Vector2( 4608, 0 )
+playerPosition = NodePath("../DoorF2_1")
 distToAlarmClock = 1
 
-[node name="Door2" parent="." index="8" instance=ExtResource( 4 )]
+[node name="DoorF2_1" parent="." index="9" instance=ExtResource( 4 )]
 
 position = Vector2( 1024, 3000 )
-playerPosition = NodePath("../Door")
+playerPosition = NodePath("../DoorF1_2")
 distToAlarmClock = 0
 
-[node name="AlarmClock" parent="." index="9" instance=ExtResource( 5 )]
+[node name="DoorF2_2" parent="." index="10" instance=ExtResource( 4 )]
 
-position = Vector2( 3584, 3000 )
-nextScene = "res://Nodes/Cutscenes/C4.tscn"
+position = Vector2( 3072, 3000 )
+playerPosition = NodePath("../DoorF3_1")
+distToAlarmClock = 0
 
-[node name="Player" parent="." index="10" instance=ExtResource( 6 )]
+[node name="AlarmClock" parent="." index="11" instance=ExtResource( 5 )]
+
+position = Vector2( 5632, 0 )
+nextScene = "res://Nodes/Cutscenes/C5.tscn"
+
+[node name="Player" parent="." index="12" instance=ExtResource( 6 )]
 
 position = Vector2( 300, 0 )
 
-[node name="Fade" type="AnimationPlayer" parent="." index="11"]
+[node name="Fade" type="AnimationPlayer" parent="." index="13"]
 
 root_node = NodePath("../Blackscreen")
 autoplay = ""
@@ -162,13 +174,13 @@ anims/Fade-In = ExtResource( 7 )
 anims/Fade-Out = ExtResource( 8 )
 blend_times = [  ]
 
-[node name="Blackscreen" type="Sprite" parent="." index="12"]
+[node name="Blackscreen" type="Sprite" parent="." index="14"]
 
 scale = Vector2( 30, 30 )
 texture = ExtResource( 9 )
 _sections_unfolded = [ "Offset", "Transform", "Visibility" ]
 
-[node name="ActiveZone" type="Area2D" parent="." index="13"]
+[node name="ActiveZone" type="Area2D" parent="." index="15"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )

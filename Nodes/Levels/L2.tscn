@@ -84,7 +84,7 @@ _sections_unfolded = [ "Transform" ]
 [node name="AlarmClock" parent="." index="4" instance=ExtResource( 4 )]
 
 position = Vector2( 5632, 0 )
-nextScene = "res://Nodes/Cutscenes/C1.tscn"
+nextScene = "res://Nodes/Cutscenes/C3.tscn"
 
 [node name="Player" parent="." index="5" instance=ExtResource( 5 )]
 

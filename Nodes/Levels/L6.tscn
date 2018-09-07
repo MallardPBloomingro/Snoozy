@@ -145,7 +145,7 @@ distToAlarmClock = 0
 [node name="AlarmClock" parent="." index="9" instance=ExtResource( 5 )]
 
 position = Vector2( 3584, 3000 )
-nextScene = "res://Nodes/Cutscenes/C4.tscn"
+nextScene = "res://Nodes/Creadits.tscn"
 
 [node name="Player" parent="." index="10" instance=ExtResource( 6 )]
 

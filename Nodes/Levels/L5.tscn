@@ -35,7 +35,7 @@ texture = ExtResource( 2 )
 centered = false
 offset = Vector2( 0, -1024 )
 region_enabled = true
-region_rect = Rect2( 0, 0, 4096, 1024 )
+region_rect = Rect2( 0, 0, 5120, 1024 )
 _sections_unfolded = [ "Offset", "Region", "Transform" ]
 
 [node name="Background2" type="Sprite" parent="." index="1"]
@@ -45,17 +45,37 @@ texture = ExtResource( 2 )
 centered = false
 offset = Vector2( 0, -1024 )
 region_enabled = true
+region_rect = Rect2( 0, 0, 9216, 1024 )
+_sections_unfolded = [ "Offset", "Region", "Transform" ]
+
+[node name="Background3" type="Sprite" parent="." index="2"]
+
+position = Vector2( 0, 6000 )
+texture = ExtResource( 2 )
+centered = false
+offset = Vector2( 0, -1024 )
+region_enabled = true
 region_rect = Rect2( 0, 0, 4096, 1024 )
 _sections_unfolded = [ "Offset", "Region", "Transform" ]
 
-[node name="Sprite" type="Sprite" parent="." index="2"]
+[node name="Background4" type="Sprite" parent="." index="3"]
+
+position = Vector2( 0, 9000 )
+texture = ExtResource( 2 )
+centered = false
+offset = Vector2( 0, -1024 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 4096, 1024 )
+_sections_unfolded = [ "Offset", "Region", "Transform" ]
+
+[node name="Sprite" type="Sprite" parent="." index="4"]
 
 position = Vector2( 512, 0 )
 texture = ExtResource( 3 )
 offset = Vector2( 0, -512 )
 _sections_unfolded = [ "Offset", "Transform" ]
 
-[node name="WallLeft" type="Area2D" parent="." index="3"]
+[node name="WallLeft" type="Area2D" parent="." index="5"]
 
 editor/display_folded = true
 input_pickable = true
@@ -73,7 +93,7 @@ position = Vector2( 0, -512 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="WallLeft2" type="Area2D" parent="." index="4"]
+[node name="WallLeft2" type="Area2D" parent="." index="6"]
 
 editor/display_folded = true
 position = Vector2( 0, 3000 )
@@ -92,10 +112,10 @@ position = Vector2( 0, -512 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="WallRight" type="Area2D" parent="." index="5"]
+[node name="WallRight" type="Area2D" parent="." index="7"]
 
 editor/display_folded = true
-position = Vector2( 4096, 0 )
+position = Vector2( 5120, 0 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -111,10 +131,10 @@ position = Vector2( 0, -512 )
 shape = SubResource( 2 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="WallRight2" type="Area2D" parent="." index="6"]
+[node name="WallRight2" type="Area2D" parent="." index="8"]
 
 editor/display_folded = true
-position = Vector2( 4096, 3000 )
+position = Vector2( 9216, 3000 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -130,28 +150,76 @@ position = Vector2( 0, -512 )
 shape = SubResource( 2 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Door" parent="." index="7" instance=ExtResource( 4 )]
+[node name="DoorF1_1" parent="." index="9" instance=ExtResource( 4 )]
 
-position = Vector2( 3072, 0 )
-playerPosition = NodePath("../Door2")
+position = Vector2( 2560, 0 )
+playerPosition = NodePath("../DoorF2_1")
 distToAlarmClock = 1
 
-[node name="Door2" parent="." index="8" instance=ExtResource( 4 )]
+[node name="DoorF1_2" parent="." index="10" instance=ExtResource( 4 )]
+
+position = Vector2( 4608, 0 )
+playerPosition = NodePath("../DoorF3_1")
+distToAlarmClock = 1
+
+[node name="DoorF2_1" parent="." index="11" instance=ExtResource( 4 )]
 
 position = Vector2( 1024, 3000 )
-playerPosition = NodePath("../Door")
+playerPosition = NodePath("../DoorF1_1")
 distToAlarmClock = 0
 
-[node name="AlarmClock" parent="." index="9" instance=ExtResource( 5 )]
+[node name="DoorF2_2" parent="." index="12" instance=ExtResource( 4 )]
 
-position = Vector2( 3584, 3000 )
-nextScene = "res://Nodes/Cutscenes/C4.tscn"
+position = Vector2( 3072, 3000 )
+playerPosition = NodePath("../DoorF3_2")
+distToAlarmClock = 0
 
-[node name="Player" parent="." index="10" instance=ExtResource( 6 )]
+[node name="DoorF2_3" parent="." index="13" instance=ExtResource( 4 )]
+
+position = Vector2( 5120, 3000 )
+playerPosition = NodePath("../DoorF4_1")
+distToAlarmClock = 0
+
+[node name="DoorF2_4" parent="." index="14" instance=ExtResource( 4 )]
+
+position = Vector2( 7168, 3000 )
+playerPosition = NodePath("../DoorF4_2")
+distToAlarmClock = 0
+
+[node name="DoorF3_1" parent="." index="15" instance=ExtResource( 4 )]
+
+position = Vector2( 1024, 6000 )
+playerPosition = NodePath("../DoorF1_2")
+distToAlarmClock = 1
+
+[node name="DoorF3_2" parent="." index="16" instance=ExtResource( 4 )]
+
+position = Vector2( 3072, 6000 )
+playerPosition = NodePath("../DoorF2_2")
+distToAlarmClock = 1
+
+[node name="DoorF4_1" parent="." index="17" instance=ExtResource( 4 )]
+
+position = Vector2( 1024, 9000 )
+playerPosition = NodePath("../DoorF2_3")
+distToAlarmClock = 1
+
+[node name="DoorF4_2" parent="." index="18" instance=ExtResource( 4 )]
+
+position = Vector2( 3072, 9000 )
+playerPosition = NodePath("../DoorF2_4")
+distToAlarmClock = 1
+
+[node name="AlarmClock" parent="." index="19" instance=ExtResource( 5 )]
+
+position = Vector2( 8704, 3000 )
+nextScene = "res://Nodes/Cutscenes/C6.tscn"
+
+[node name="Player" parent="." index="20" instance=ExtResource( 6 )]
 
 position = Vector2( 300, 0 )
 
-[node name="Fade" type="AnimationPlayer" parent="." index="11"]
+[node name="Fade" type="AnimationPlayer" parent="." index="21"]
 
 root_node = NodePath("../Blackscreen")
 autoplay = ""
@@ -162,13 +230,13 @@ anims/Fade-In = ExtResource( 7 )
 anims/Fade-Out = ExtResource( 8 )
 blend_times = [  ]
 
-[node name="Blackscreen" type="Sprite" parent="." index="12"]
+[node name="Blackscreen" type="Sprite" parent="." index="22"]
 
 scale = Vector2( 30, 30 )
 texture = ExtResource( 9 )
 _sections_unfolded = [ "Offset", "Transform", "Visibility" ]
 
-[node name="ActiveZone" type="Area2D" parent="." index="13"]
+[node name="ActiveZone" type="Area2D" parent="." index="23"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
