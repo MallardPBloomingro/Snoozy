@@ -25,7 +25,7 @@ extents = Vector2( 10, 512 )
 custom_solver_bias = 0.0
 extents = Vector2( 10000, 512 )
 
-[node name="L1F1" type="Node"]
+[node name="L1F1" type="Node" index="0"]
 
 script = ExtResource( 1 )
 
@@ -133,26 +133,26 @@ _sections_unfolded = [ "Transform" ]
 [node name="DoorF1_1" parent="." index="7" instance=ExtResource( 4 )]
 
 position = Vector2( 2048, 0 )
-playerPosition = NodePath("../DoorF3_2")
-distToAlarmClock = 2
+playerPosition = NodePath("../DoorF2_1")
+distToAlarmClock = 0
 
 [node name="DoorF1_2" parent="." index="8" instance=ExtResource( 4 )]
 
 position = Vector2( 4608, 0 )
-playerPosition = NodePath("../DoorF2_1")
-distToAlarmClock = 1
+playerPosition = NodePath("../DoorF2_2")
+distToAlarmClock = 0
 
 [node name="DoorF2_1" parent="." index="9" instance=ExtResource( 4 )]
 
 position = Vector2( 1024, 3000 )
-playerPosition = NodePath("../DoorF1_2")
-distToAlarmClock = 0
+playerPosition = NodePath("../DoorF1_1")
+distToAlarmClock = 1
 
 [node name="DoorF2_2" parent="." index="10" instance=ExtResource( 4 )]
 
 position = Vector2( 3072, 3000 )
-playerPosition = NodePath("../DoorF3_1")
-distToAlarmClock = 0
+playerPosition = NodePath("../DoorF1_2")
+distToAlarmClock = 1
 
 [node name="AlarmClock" parent="." index="11" instance=ExtResource( 5 )]
 
