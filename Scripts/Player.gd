@@ -2,7 +2,6 @@ extends Area2D
 
 
 export (int) var speed
-export (int) var collisionDist#TODO: müssen wir warscheinlich endern, sodass es egal ist wie breit die collisionbox ist
 
 var target = 0
 var isWalking = false
@@ -59,9 +58,9 @@ func collisionHandler():# Am I in door or alarm?
 		return
 	
 	if col[0].name == "AlarmClock":
-		col[0].press()# TODO: send signal and play alarm shut down animation
+		col[0].press()# TODO: play alarm shut down animation
 	elif (col[0].has_meta("Type") && col[0].get_meta("Type") == "Door"):
-		col[0].traverse()# TODO: send signal and play opening animation
+		col[0].traverse()# TODO: play opening animation
 
 func collisionObstacle():
 	var col = get_overlapping_areas()
@@ -76,9 +75,8 @@ func collisionObstacle():
 		return
 	
 	if col[0].position.x < position.x:
-		position.x = col[0].position.x + collisionDist
+		position.x = col[0].position.x + (col[0].get_child(0).shape.extents.x + $CollisionShape2D.shape.extents.x+1)
 	else:
-		position.x = col[0].position.x - collisionDist
+		position.x = col[0].position.x - (col[0].get_child(0).shape.extents.x + $CollisionShape2D.shape.extents.x+1)
 	
 	target = position.x
-	print(col[0].name)
